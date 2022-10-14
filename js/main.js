@@ -19,6 +19,7 @@ let state = {
   p2Choice: p2Choice,
   p1Score: p1Score,
   p2Score: p2Score,
+  winner: undefined,
 };
 
 /*----- cached elements  -----*/
@@ -29,7 +30,7 @@ const grassButton = document.querySelector("#grassButton");
 
 // Display Game Info
 const p1ScoreDisplay = document.querySelector("#p1Score");
-const p2ScoreDisplay = document.querySelector("#p1Score");
+const p2ScoreDisplay = document.querySelector("#p2Score");
 const p1ChoiceDisplay = document.querySelector("#p1Choice");
 const p2ChoiceDisplay = document.querySelector("#p2Choice");
 const winnerDisplay = document.querySelector("#winnerDisplay");
@@ -127,7 +128,7 @@ function reset() {
     p2Choice: undefined,
     p1Score: 0,
     p2Score: 0,
-    winner: null,
+    winner: undefined,
   };
   fireButton.removeEventListener("click", handleChoice);
   waterButton.removeEventListener("click", handleChoice);
@@ -139,6 +140,6 @@ function init() {
   fireButton.addEventListener("click", handleChoice);
   waterButton.addEventListener("click", handleChoice);
   grassButton.addEventListener("click", handleChoice);
-  resetButton.addEventListener("click", handleReset);
 }
 init();
+resetButton.addEventListener("click", handleReset);
